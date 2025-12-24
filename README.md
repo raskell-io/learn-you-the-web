@@ -23,9 +23,7 @@
 
 <p align="center">
   <a href="https://raskell-io.github.io/learn-you-the-web/">Read the Book</a> •
-  <a href="https://github.com/raskell-io/sentinel">Sentinel</a> •
-  <a href="#chapters">Chapters</a> •
-  <a href="#contributing">Contributing</a>
+  <a href="https://github.com/raskell-io/sentinel">Sentinel</a>
 </p>
 
 <hr />
@@ -50,8 +48,6 @@ The web was built by people trying to make their work easier to share. Beneath a
 
 ---
 
-## Chapters
-
 1. **Asking for a Page** — The web begins when one computer politely asks another for something.
 2. **Getting an Answer** — Responses have structure: status, headers, and the content you asked for.
 3. **The Place That Answers** — What a web server is, and where the pages live.
@@ -60,32 +56,6 @@ The web was built by people trying to make their work easier to share. Beneath a
 6. **Locks, Keys, and Quiet Conversations** — HTTPS, TLS, and keeping conversations private.
 7. **When Things Get Busy** — Load, reliability, and scaling without mysticism.
 8. **Running Your Own Corner** — Ownership, responsibility, and the joy of hosting.
-
----
-
-## Local development
-
-This book is built with [mdBook](https://rust-lang.github.io/mdBook/). We use [mise](https://mise.jdx.dev/) for tool management.
-
-```bash
-# Install dependencies
-mise install
-
-# Serve locally with live reload
-mise run serve
-
-# Build the book
-mise run build
-
-# Run tests
-mise run test
-```
-
----
-
-## Contributing
-
-Contributions are welcome. Whether it's fixing a typo, improving an explanation, or suggesting a better metaphor—every bit helps make the web more understandable.
 
 ---
 
