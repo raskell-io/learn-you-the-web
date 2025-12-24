@@ -2,9 +2,11 @@
 
 ## Asking for a Page
 
-### It’s Not Magic, It’s a Conversation
+### It's Not Magic, It's a Conversation
 
-The first thing to understand about the web is that it’s not magic. It might feel like magic when you click a link or type an address and a page pops up instantly, but behind that quick appearance is a simple, structured conversation between two computers. Think of it this way: when you see a new web page load, what really happened is that one computer politely said, “Hey, could I have that page, please?” and another computer responded, “Sure, here it is!” This back-and-forth is the heart of how the web works. It’s less Harry Potter and more like a well-organized phone call or a polite chat at a help desk.
+The first thing to understand about the web is that it's not magic. It might feel like magic when you click a link or type an address and a page pops up instantly, but behind that quick appearance is a simple, structured conversation between two computers. Think of it this way: when you see a new web page load, what really happened is that one computer politely said, "Hey, could I have that page, please?" and another computer responded, "Sure, here it is!" This back-and-forth is the heart of how the web works. It's less Harry Potter and more like a well-organized phone call or a polite chat at a help desk.
+
+![A notebook talking to a server](./assets/notebook-talks-to-server.avif)
 
 The web is essentially a Q&A session between your device and some remote server. One asks a question, the other gives an answer. No spells, no pixie dust—just computers following a set of polite rules to talk to each other. (That set of rules is a special language we’ll talk about later. No need to worry about it now.) The important thing is: every time you load a page, your device is asking for something and another device is answering. It’s a digital conversation, as ordinary (and as extraordinary) as that.
 
