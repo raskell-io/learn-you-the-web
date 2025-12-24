@@ -1,0 +1,24 @@
+[book]
+title = "Learn You the Web (for Real This Time)"
+authors = ["Raffael Schneider"]
+language = "en"
+src = "src"
+
+[build]
+build-dir = "book"
+create-missing = true
+use-default-preprocessors = true
+
+[preprocessor.index]
+
+[preprocessor.links]
+
+[output.html]
+default-theme = "latte"
+preferred-dark-theme = "macchiato"
+additional-css = ["./theme/catppuccin.css"]
+additional-js = []
+git-repository-url = "https://github.com/raskell-io/learn-you-the-web"
+site-url = "/learn-you-the-web/"
+cname = ""
+input-404 = ""
