@@ -1,0 +1,18 @@
+[tools]
+mdbook = "0.5.2"
+
+[tasks.build]
+description = "Build the book"
+run = "mdbook build"
+
+[tasks.serve]
+description = "Serve the book locally with live reload"
+run = "mdbook serve --open"
+
+[tasks.test]
+description = "Test the book (check for broken links)"
+run = "mdbook test"
+
+[tasks.clean]
+description = "Clean the build directory"
+run = "mdbook clean"
