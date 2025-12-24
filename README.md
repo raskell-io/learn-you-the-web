@@ -14,7 +14,7 @@
     <img alt="mdBook" src="https://img.shields.io/badge/Built%20with-mdBook-f5a97f?style=for-the-badge">
   </a>
   <a href="LICENSE">
-    <img alt="License" src="https://img.shields.io/badge/License-Apache--2.0-c6a0f6?style=for-the-badge">
+    <img alt="License" src="https://img.shields.io/badge/License-CC0--1.0-c6a0f6?style=for-the-badge">
   </a>
   <a href="https://raskell-io.github.io/learn-you-the-web/">
     <img alt="Read Online" src="https://img.shields.io/badge/Read-Online-89b4fa?style=for-the-badge">
@@ -91,7 +91,7 @@ Contributions are welcome. Whether it's fixing a typo, improving an explanation,
 
 ## License
 
-This work is licensed under [Apache 2.0](LICENSE).
+This work is dedicated to the public domain under [CC0 1.0 Universal](LICENSE).
 
 ---
 
