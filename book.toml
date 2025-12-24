@@ -15,10 +15,8 @@ use-default-preprocessors = true
 
 [output.html]
 default-theme = "latte"
-preferred-dark-theme = "macchiato"
-additional-css = ["./theme/catppuccin.css"]
-additional-js = []
+preferred-dark-theme = "mocha"
+additional-css = ["./theme/catppuccin.css", "./theme/css/general.css"]
+additional-js = ["./theme/custom.js"]
 git-repository-url = "https://github.com/raskell-io/learn-you-the-web"
 site-url = "/learn-you-the-web/"
-cname = ""
-input-404 = ""

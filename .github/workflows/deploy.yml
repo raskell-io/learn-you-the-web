@@ -22,13 +22,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup mdBook
-        uses: peaceiris/actions-mdbook@v2
+      - name: Setup mise
+        uses: jdx/mise-action@v2
         with:
-          mdbook-version: '0.4.40'
+          experimental: true
+
+      - name: Install tools via mise
+        run: mise install
 
       - name: Build the book
-        run: mdbook build
+        run: mise run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
