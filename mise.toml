@@ -1,18 +1,65 @@
+# Learn You the Web - mise configuration
+# Built with Zola and Tanuki theme
+
 [tools]
-mdbook = "0.5.2"
+zola = "0.19.2"
+
+[tasks.default]
+description = "Show available tasks"
+run = "mise tasks"
+
+# Quick aliases
+[tasks.b]
+alias = "build"
+
+[tasks.s]
+alias = "serve"
+
+[tasks.c]
+alias = "clean"
+
+[tasks.u]
+alias = "update-theme"
 
 [tasks.build]
 description = "Build the book"
-run = "mdbook build"
+run = """
+#!/usr/bin/env bash
+set -e
+echo "Building Learn You the Web..."
+zola build
+echo "Build complete! Output in public/"
+"""
 
 [tasks.serve]
 description = "Serve the book locally with live reload"
-run = "mdbook serve --open"
-
-[tasks.test]
-description = "Test the book (check for broken links)"
-run = "mdbook test"
+run = """
+#!/usr/bin/env bash
+set -e
+echo "Starting Zola dev server..."
+echo "Visit http://127.0.0.1:1111"
+zola serve --port 1111
+"""
 
 [tasks.clean]
-description = "Clean the build directory"
-run = "mdbook clean"
+description = "Clean build artifacts"
+run = "rm -rf public"
+
+[tasks.check]
+description = "Check for broken links"
+run = """
+#!/usr/bin/env bash
+set -e
+echo "Checking book..."
+zola check
+"""
+
+[tasks.update-theme]
+description = "Update Tanuki theme to latest version"
+run = """
+#!/usr/bin/env bash
+set -e
+echo "Updating Tanuki theme..."
+git submodule update --remote themes/tanuki
+echo "Theme updated to $(cd themes/tanuki && git rev-parse --short HEAD)"
+"""

@@ -1,0 +1,35 @@
+base_url = "https://learn-you-the-web.raskell.io"
+title = "Learn You the Web"
+description = "A friendly guide to how the web actually works. For Real This Time."
+default_language = "en"
+theme = "tanuki"
+
+compile_sass = true
+minify_html = true
+build_search_index = true
+generate_feeds = false
+
+[markdown]
+highlight_code = true
+highlight_theme = "base16-ocean-dark"
+smart_punctuation = true
+external_links_target_blank = true
+external_links_no_follow = false
+external_links_no_referrer = false
+
+[search]
+include_title = true
+include_description = true
+include_path = true
+include_content = true
+
+[extra]
+mode = "book"
+author = "Raffael Schneider"
+github = "https://github.com/raskell-io/learn-you-the-web"
+show_theme_toggle = true
+favicon = "favicon.png"
+logo = "mascots-beach.avif"
+
+# SEO
+keywords = "web development, HTTP, DNS, TLS, web servers, reverse proxy, networking, tutorial, e-book"
