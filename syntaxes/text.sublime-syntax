@@ -1,0 +1,8 @@
+%YAML 1.2
+---
+# Plain text and diagrams: no highlighting, just silences the "language not found" warning.
+name: Plain diagram text
+file_extensions: [text]
+scope: text.plain.diagram
+contexts:
+  main: []

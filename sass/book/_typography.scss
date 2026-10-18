@@ -1,0 +1,137 @@
+// =============================================================================
+// Reading typography
+// =============================================================================
+
+:root {
+  --measure: 40rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  letter-spacing: -0.01em;
+}
+
+.article__content {
+  font-family: var(--font-reading);
+  font-size: 1.125rem;
+  line-height: 1.72;
+  color: var(--color-text);
+  max-width: var(--measure);
+  margin: 0 auto;
+
+  p,
+  li {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  p {
+    margin: 0 0 1.15em;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 1.25em;
+    padding-left: 1.4em;
+  }
+
+  li + li {
+    margin-top: 0.35em;
+  }
+
+  li::marker {
+    color: var(--book-accent);
+  }
+
+  strong {
+    font-weight: 650;
+    color: var(--color-heading);
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 650;
+    line-height: 1.2;
+    margin: 2.75rem 0 1rem;
+    padding: 0;
+    border: 0;
+
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 2rem 0 0.75rem;
+  }
+
+  a:not(.zola-anchor) {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--book-accent);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+    box-shadow: none;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: var(--book-accent);
+    }
+  }
+
+  // Inline code: a little ink-stamp, not a neon sign
+  :not(pre) > code {
+    font-size: 0.85em;
+    padding: 0.1em 0.35em;
+    border-radius: 0.3em;
+    background: var(--color-bg-elevated);
+    color: var(--color-heading);
+    border: 1px solid var(--color-border);
+    white-space: nowrap;
+  }
+
+  kbd {
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+    padding: 0.1em 0.45em;
+    border-radius: 0.3em;
+    border: 1px solid var(--color-border-muted);
+    border-bottom-width: 2px;
+    background: var(--color-bg-surface);
+  }
+
+  blockquote {
+    font-style: italic;
+    border-left: 3px solid var(--book-accent-2);
+    background: none;
+    padding: 0 0 0 1.25rem;
+    margin: 1.5rem 0;
+    color: var(--color-text-secondary);
+  }
+
+  hr {
+    border: 0;
+    margin: 3rem auto;
+    text-align: center;
+    height: auto;
+    background: none;
+
+    &::after {
+      content: "\2022  \2022  \2022";
+      white-space: pre;
+      color: var(--color-text-subtle);
+      letter-spacing: 0.5em;
+    }
+  }
+
+  img {
+    border-radius: 14px;
+  }
+}

@@ -1,0 +1,38 @@
+// =============================================================================
+// Code blocks look like little terminal windows
+// =============================================================================
+
+pre,
+[data-theme="light"] pre {
+  background: #2b303b;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: var(--book-shadow);
+
+  // Code blocks stay dark in both themes, so unhighlighted text needs light ink
+  code {
+    color: #c0c5ce;
+    font-size: 0.85rem;
+    padding-top: 2.75rem;
+  }
+}
+
+pre[data-lang]::before,
+[data-theme="light"] pre[data-lang]::before {
+  padding-left: 4.25rem;
+  background:
+    radial-gradient(circle at 1.1rem 50%, #ff5f57 0.3rem, transparent 0.32rem),
+    radial-gradient(circle at 2.05rem 50%, #febc2e 0.3rem, transparent 0.32rem),
+    radial-gradient(circle at 3rem 50%, #28c840 0.3rem, transparent 0.32rem),
+    #232730;
+  color: #8c93a3;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+// code.js upper-cases unknown language names, so match both spellings
+pre[data-lang="console"]::before,
+pre[data-lang="CONSOLE"]::before { content: "terminal"; }
+pre[data-lang="text"]::before,
+pre[data-lang="TEXT"]::before,
+pre[data-lang="Plain Text"]::before { content: ""; }

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}A friendly guide to how the web actually works{% endblock %}
+
+{% block body_class %}cover-page{% endblock %}
+
+{% block content %}
+<section class="cover" aria-labelledby="cover-title">
+    <p class="cover__kicker">A friendly guide to how the web actually works</p>
+    <h1 class="cover__title" id="cover-title">Learn You<br>the Web</h1>
+    <p class="cover__subtitle">For Real This Time.</p>
+
+    {% if section.extra.cover_image %}
+    <figure class="cover__art">
+        <img src="{{ get_url(path=section.extra.cover_image) | safe }}" alt="{{ section.extra.cover_image_alt | default(value='') }}" width="1536" height="1024">
+    </figure>
+    {% endif %}
+
+    <div class="cover__blurb">
+        {{ section.content | safe }}
+    </div>
+
+    <div class="cover__actions">
+        {% for pg in section.pages %}{% if loop.first %}
+        <a class="book-button book-button--primary" href="{{ pg.permalink | safe }}">Start reading <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}{% endfor %}
+        <a class="book-button" href="#contents">Table of contents</a>
+    </div>
+</section>
+
+<section class="contents" id="contents" aria-labelledby="contents-heading">
+    <h2 class="contents__heading" id="contents-heading">Contents</h2>
+    <ol class="contents__list">
+        {% for pg in section.pages %}
+        {% if pg.extra.hide_from_toc is not defined or not pg.extra.hide_from_toc %}
+        <li class="contents__item">
+            <a href="{{ pg.permalink | safe }}">
+                <span class="contents__number" aria-hidden="true">{% if pg.extra.chapter is defined %}{{ pg.extra.chapter }}{% else %}&sect;{% endif %}</span>
+                <span class="contents__title">{% if pg.extra.chapter is defined %}<span class="sr-only">Chapter {{ pg.extra.chapter }}: </span>{% endif %}{{ pg.title }}</span>
+                {% if pg.description %}<span class="contents__description">{{ pg.description }}</span>{% endif %}
+            </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ol>
+</section>
+
+<footer class="cover-footer">
+    Written by {{ config.extra.author }} and dedicated to the public domain (<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>).
+    {% if config.extra.github %}Typos, ideas and corrections welcome <a href="{{ config.extra.github }}">on GitHub</a>.{% endif %}
+</footer>
+{% endblock %}

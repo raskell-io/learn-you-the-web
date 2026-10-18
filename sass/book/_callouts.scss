@@ -1,0 +1,57 @@
+// =============================================================================
+// Callouts: "Try it" boxes and asides
+// =============================================================================
+
+.callout {
+  position: relative;
+  margin: 2rem 0;
+  padding: 1.1rem 1.25rem 1.1rem 1.25rem;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  font-size: 1.03rem;
+  line-height: 1.65;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  pre {
+    margin: 0.85rem 0;
+  }
+}
+
+.callout__label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+}
+
+.callout--try {
+  background: var(--book-accent-soft);
+  border-color: color-mix(in srgb, var(--book-accent) 35%, transparent);
+
+  .callout__label {
+    color: var(--book-accent);
+  }
+}
+
+.callout--note {
+  background: var(--book-accent-2-soft);
+  border-color: color-mix(in srgb, var(--book-accent-2) 30%, transparent);
+
+  .callout__label {
+    color: var(--book-accent-2);
+  }
+}

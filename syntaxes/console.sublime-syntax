@@ -1,0 +1,22 @@
+%YAML 1.2
+---
+# Terminal sessions: "$ command" input lines, and curl -v's "*", ">" and "<" markers.
+name: Console
+file_extensions: [console, terminal, shell-session]
+scope: source.console
+contexts:
+  main:
+    - match: '^(\$) (.*)$'
+      captures:
+        1: comment.prompt.console
+        2: entity.name.function.command.console
+    - match: '^(>)( .*)?$'
+      captures:
+        1: keyword.control.sent.console
+        2: string.unquoted.sent.console
+    - match: '^(<)( .*)?$'
+      captures:
+        1: keyword.control.received.console
+        2: constant.numeric.received.console
+    - match: '^[*;].*$'
+      scope: comment.line.console

@@ -12,6 +12,7 @@ generate_feeds = false
 [markdown]
 highlight_code = true
 highlight_theme = "base16-ocean-dark"
+extra_syntaxes_and_themes = ["syntaxes"]
 smart_punctuation = true
 external_links_target_blank = true
 external_links_no_follow = false
@@ -29,7 +30,10 @@ author = "Raffael Schneider"
 github = "https://github.com/raskell-io/learn-you-the-web"
 show_theme_toggle = true
 favicon = "favicon.png"
+apple_touch_icon = "apple-touch-icon.png"
 logo = "mascots-beach.avif"
+og_image = "assets/mascots-beach.png"
+og_image_alt = "The Learn You the Web mascots on a beach at sunset"
 
 # SEO
 keywords = "web development, HTTP, DNS, TLS, web servers, reverse proxy, networking, tutorial, e-book"

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="src/assets/mascots-beach.png" alt="Learn You the Web mascots" width="600" />
+<img src="static/assets/mascots-beach.png" alt="Learn You the Web mascots" width="600" />
 
 <h1 align="center">Learn You the Web</h1>
 
@@ -10,58 +10,65 @@
 </p>
 
 <p align="center">
-  <a href="https://rust-lang.github.io/mdBook/">
-    <img alt="mdBook" src="https://img.shields.io/badge/Built%20with-mdBook-f5a97f?style=for-the-badge">
+  <a href="https://www.getzola.org/">
+    <img alt="Built with Zola" src="https://img.shields.io/badge/Built%20with-Zola-f5a97f?style=for-the-badge">
   </a>
   <a href="LICENSE">
     <img alt="License" src="https://img.shields.io/badge/License-CC0--1.0-c6a0f6?style=for-the-badge">
   </a>
-  <a href="https://raskell-io.github.io/learn-you-the-web/">
+  <a href="https://learn-you-the-web.raskell.io/">
     <img alt="Read Online" src="https://img.shields.io/badge/Read-Online-89b4fa?style=for-the-badge">
   </a>
-</p>
-
-<p align="center">
-  <a href="https://raskell-io.github.io/learn-you-the-web/">Read the Book</a> •
-  <a href="https://github.com/raskell-io/sentinel">Sentinel</a>
 </p>
 
 <hr />
 
 </div>
 
-Once upon a time, the web was just a polite question and an honest answer. A browser asked for a page, a server replied, and that was the whole miracle. The web you use today is still built on that same exchange—it just wears a lot more armor.
+Every time you open a web page, one computer asks another for something, and the other one answers. That's the whole trick. Everything else (domain names, servers, proxies, padlocks, clouds) is armour bolted on over the years.
 
-This book explains how that armor came to be, what purpose it serves, and how you can use it wisely, so hosting and protecting your own corner of the web becomes something you understand, not something you avoid.
+This book takes the armour off, one piece at a time. You'll type real commands, read real conversations between machines, and by the end you'll be able to put your own corner of the web online and understand every layer standing in front of it. It owes its spirit, and its grammar, to *Learn You a Haskell for Great Good!*
 
----
+**[Read it online →](https://learn-you-the-web.raskell.io/)**
 
-## Why this book exists
+## Contents
 
-The web can feel intimidating. Words like "infrastructure" and "edge" and "security posture" replaced the earlier, friendlier language of pages and links. Hosting a website started to sound like a specialist skill.
+- **Introduction**: Before the web was something you scroll, it was something you asked.
+1. **Asking for a Page**: `curl -v` and the conversation behind every page.
+2. **Getting an Answer**: Status codes, and all the ways a server can say no.
+3. **What's in a Name?**: DNS, and how `example.com` becomes a number.
+4. **The Place That Answers**: What a server is. You'll run one.
+5. **Speaking Clearly**: HTTP up close, typed by hand.
+6. **Standing at the Door**: Reverse proxies, and why you might want one.
+7. **Locks, Keys, and Quiet Conversations**: HTTPS, TLS and certificates.
+8. **When Things Get Busy**: Load, caching, CDNs, and scaling without mysticism.
+9. **Running Your Own Corner**: Putting a real site online, and keeping it there.
 
-This book is an invitation to step closer again.
+## Working on the book
 
-We move slowly and start from the beginning. We look at what a request actually is, the way you might look at a postcard before thinking about the postal system that delivers it. We meet web servers as simple, patient programs that answer questions. We meet reverse proxies as helpful intermediaries—like doormen—whose job is to guide traffic, not to dominate it.
+The site is built with [Zola](https://www.getzola.org/) and the [Tanuki](https://github.com/raskell-io/tanuki) theme (a git submodule). Tool versions are pinned with [mise](https://mise.jdx.dev/).
 
-The web was built by people trying to make their work easier to share. Beneath all the layers, it is still doing the same thing it did at the beginning: helping one machine ask another machine for something useful.
+```sh
+git clone --recursive https://github.com/raskell-io/learn-you-the-web
+cd learn-you-the-web
+mise install
+mise run serve   # http://127.0.0.1:1111
+```
 
----
+Use the pinned Zola (`mise run …` or `mise exec -- zola …`). Newer Zola releases renamed some config keys and won't build this site as-is.
 
-1. **Asking for a Page** — The web begins when one computer politely asks another for something.
-2. **Getting an Answer** — Responses have structure: status, headers, and the content you asked for.
-3. **The Place That Answers** — What a web server is, and where the pages live.
-4. **Speaking Clearly** — HTTP as the shared language that makes it all work.
-5. **Standing at the Door** — Reverse proxies, and why you might want one.
-6. **Locks, Keys, and Quiet Conversations** — HTTPS, TLS, and keeping conversations private.
-7. **When Things Get Busy** — Load, reliability, and scaling without mysticism.
-8. **Running Your Own Corner** — Ownership, responsibility, and the joy of hosting.
+Where things live:
 
----
+- `content/`: one Markdown file per chapter. Chapter numbers come from `[extra] chapter` in the front matter; order comes from `weight`.
+- `STYLE.md`: the voice and markup guide. Read it before writing.
+- `templates/`: the cover page, the chapter layout and the `try` / `note` shortcodes. These override or extend Tanuki.
+- `sass/`: the book's look (palette, typography, callouts), layered on top of Tanuki's stylesheet.
+- `syntaxes/`: highlighting for `console`, `http` and `text` code blocks.
+- `static/fonts/`: self-hosted Fraunces and Literata (SIL Open Font License).
 
 ## License
 
-This work is dedicated to the public domain under [CC0 1.0 Universal](LICENSE).
+This work is dedicated to the public domain under [CC0 1.0 Universal](LICENSE). The bundled fonts are under the SIL Open Font License; see `static/fonts/`.
 
 ---
 

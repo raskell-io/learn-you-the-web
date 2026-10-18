@@ -1,0 +1,28 @@
+%YAML 1.2
+---
+# Raw HTTP/1.1 messages: request line, status line, headers, then a body.
+name: HTTP
+file_extensions: [http]
+scope: source.http
+contexts:
+  main:
+    - match: '^([A-Z]+) (\S+) (HTTP/[\d.]+)$'
+      captures:
+        1: keyword.control.method.http
+        2: entity.name.function.path.http
+        3: comment.version.http
+    - match: '^(HTTP/[\d.]+) (\d{3}) (.*)$'
+      captures:
+        1: comment.version.http
+        2: constant.numeric.status.http
+        3: keyword.control.reason.http
+    - match: '^([A-Za-z0-9-]+)(:)(.*)$'
+      captures:
+        1: entity.name.tag.header.http
+        2: punctuation.separator.http
+        3: string.unquoted.value.http
+    - match: '^\s*$'
+      push: body
+  body:
+    - match: '.*'
+      scope: text.body.http

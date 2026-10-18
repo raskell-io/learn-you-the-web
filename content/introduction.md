@@ -1,50 +1,44 @@
 +++
 title = "Introduction"
+description = "In 1989 a physicist wanted to find his colleagues' notes. The rest of us got the web."
 weight = 1
+
+[extra]
+kicker = "Before we begin"
 +++
 
-Before the web became something you scroll, it was something you asked.
+In March 1989, Tim Berners-Lee, a computer scientist at CERN, handed his boss a proposal called *Information Management: A Proposal*. His boss, Mike Sendall, read it and wrote three words across the top: "Vague but exciting". Then he let him build it anyway, which may be the best-value management decision ever made.
 
-Not in the sense of search engines or forms or feeds, but in a much simpler way. One computer asked another computer for a document. The other computer sent it back. That was the whole exchange. If you understand that much, you already understand the most important part of the web.
+The problem Berners-Lee wanted to solve was not glamorous. CERN was full of brilliant people from dozens of countries, using every kind of computer ever sold, each with its own way of storing files. People joined a project, wrote things down, and left. Their notes stayed behind on machines nobody could find, in formats nobody could read. The laboratory was forgetting things faster than it learned them.
 
-Everything else came later.
+## The modest idea
 
-In 1989, at CERN, this simplicity mattered. CERN was, and still is, a place where people from all over the world come together to work on complex ideas. They brought different machines, different operating systems, different ways of storing information. People joined projects, contributed for a while, and then moved on. Their knowledge often stayed behind in files that were hard to find or harder to understand.
+He didn't propose to replace everyone's computers or make them agree on a filing system. He proposed two small things.
 
-Picture a shared office where everyone uses their own filing system. Some label folders carefully. Others scribble notes on loose paper. After a few years, no one quite knows where anything is anymore. Important things still exist—you just can't reliably find them.
+First, documents should be able to point at other documents, anywhere, with a link. Second, there should be a protocol so simple that any computer could implement it in an afternoon: one machine asks for a document by name, the other sends it back. The very first version of that protocol was a single line of text, `GET` followed by the document you wanted. The server replied with the document and hung up.
 
-That was the problem.
+By the end of 1990 the first web server was running on a NeXT computer in his office, with a handwritten label stuck to it: "This machine is a server. DO NOT POWER IT DOWN!!". In 1993 CERN put the software in the public domain. No licence fee, no permission needed, no company to ask. That turned out to matter more than anything technical. Anyone could run a server, anyone could write a browser, and so, within a few years, everyone did.
 
-To address it, Tim Berners-Lee did not propose a grand redesign of computing. He didn't try to standardize every system or replace them with something new. Instead, he suggested something almost modest to the point of being unremarkable: a way to link documents together, and a simple protocol that any computer could use to ask for one of those documents.
+{% try() %}
+The first website is still online. Open this in your browser:
 
-Think of it like writing down clear directions instead of rearranging the entire city.
+[http://info.cern.ch](http://info.cern.ch)
 
-The result was the web. Not a product. Not a company. Not a platform. Just a shared way of asking for information and receiving it. If two machines followed the same rules, they could talk to each other. If a document existed somewhere, it could point to another document somewhere else. Over time, those links formed a web—not because anyone planned it, but because that is what happens when connections are easy to make.
+Click through to "Browse the first website". It's a restored copy from 1992: grey, plain, and almost entirely links. It's also a page that any browser made in the last thirty years can still open, which is not something you can say about many 1992 file formats.
+{% end %}
 
-At its core, the web is still just this exchange. A request goes out. A response comes back. You can imagine it as a letter and a reply, or a knock on a door and someone answering. The rules are simple enough that they can be written down clearly, implemented by anyone, and explained without special equipment or insider knowledge.
+## How it got far away
 
-That simplicity was not an accident. It was a choice.
+The web succeeded, and success brought crowds. Crowds brought new problems, and every problem got a sensible fix. Conversations needed privacy, so encryption was added. Popular sites needed to serve millions of people, so caches and load balancers moved in between you and them. Some doors needed locks, some needed guards, and some needed a guard standing in front of a guard.
 
-Because the web was easy to implement, people tried it. Because it did not require permission, people experimented. Because it was open, people extended it in directions no one had anticipated. A personal homepage, a research archive, a small business site—these were all built on the same basic idea. The web did not care what you were publishing, only that you followed the rules of the conversation.
+Each layer earned its place. But layers hide the thing they were built around. Today "put a website online" sounds like a job for a specialist, and the vocabulary has drifted from *pages* and *links* to *edge*, *origin*, *ingress* and *zero-trust posture*. The original exchange is still in there, one machine asking and another answering. You can't see it anymore.
 
-Success, however, brings new problems.
+## What this book does
 
-As more people joined the conversation, new needs appeared. Conversations needed privacy, so encryption was added. Popular sites needed help handling many visitors at once, so intermediaries appeared to spread the load. Some doors needed locks, others needed guards, and some needed someone to politely say, "Not this way."
+This book peels the layers back one at a time and has you poke each one with your own hands. You'll ask a server for a page and read its reply line by line. You'll learn what the server's numbers mean, follow a name like `example.com` down a tree of servers to the number behind it, run a web server on your own laptop, put a guard at its door, give it a lock and key, and watch what happens when a lot of people show up at once. At the end, you'll put a real site on the real internet.
 
-These additions were sensible. They solved real problems. In many ways, they made the web safer and more reliable. But they also added layers. And layers have a habit of hiding the simple thing they were built to protect.
+Every chapter has you run something within the first screen or two, and then explains what you just saw. The explanations are short. The commands are real, and the output you'll see in this book came from running them.
 
-Over time, the web began to feel less like a conversation you could join and more like a machine you were expected to use correctly. Hosting a website started to sound like a specialist skill. Words like "infrastructure" and "edge" and "security posture" replaced the earlier, friendlier language of pages and links. The web still worked—but it no longer felt close at hand.
+You need two things: a **terminal** and a **web browser**. That's all. The tools we use (`curl`, `dig`, Python, a few others) either ship with your computer already or are one install command away, and all of them are free. You don't need to know how to program. You do need to be willing to type things and see what happens.
 
-If you've ever felt that distance, you're not alone.
-
-This book is an invitation to step closer again.
-
-We will move slowly and start from the beginning. We will look at what a request actually is, the way you might look at a postcard before thinking about the postal system that delivers it. We will meet web servers as simple, patient programs that answer questions. We will meet reverse proxies as helpful intermediaries—like reception desks or doormen—whose job is to guide traffic, not to dominate it.
-
-Along the way, we'll use comparisons, small diagrams, and everyday images. Not to oversimplify, but to give your intuition something to hold onto. You don't need to memorize specifications or learn new tools right away. Understanding comes first. Confidence follows naturally.
-
-The web was built by people trying to make their work easier to share. It grew because that goal resonated with others. Beneath all the layers, it is still doing the same thing it did at the beginning: helping one machine ask another machine for something useful.
-
-Once you see that clearly, the rest stops being intimidating.
-
-Let's take a breath, start with a single request, and see where it leads.
+Underneath every layer we're about to take apart, the web still does what it did in 1990 on that NeXT box with the sticker: one computer asks another for something, and gets an answer. So let's ask.

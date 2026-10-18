@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}{% if page.extra.chapter is defined %}{{ page.extra.chapter }}. {% endif %}{{ page.title }}{% endblock %}
+
+{% block body_class %}page-{{ page.slug }}{% endblock %}
+
+{% block nav_buttons %}
+{% include "partials/nav-buttons.html" %}
+{% endblock %}
+
+{% block content %}
+<article class="article" itemscope itemtype="https://schema.org/Article" aria-labelledby="article-title">
+    <header class="chapter-header">
+        <p class="chapter-header__kicker">{% if page.extra.chapter is defined %}Chapter {{ page.extra.chapter }}{% else %}{{ page.extra.kicker | default(value=config.title) }}{% endif %}</p>
+        <h1 class="chapter-header__title" id="article-title" itemprop="headline">{{ page.title }}</h1>
+        {% if page.description %}
+        <p class="chapter-header__description" itemprop="description">{{ page.description }}</p>
+        {% endif %}
+    </header>
+
+    {% if page.extra.illustration %}
+    <figure class="chapter-figure">
+        <img src="{{ get_url(path=page.extra.illustration) | safe }}" alt="{{ page.extra.illustration_alt | default(value='') }}" width="1536" height="1024">
+    </figure>
+    {% endif %}
+
+    <div class="article__content" itemprop="articleBody">
+        {{ page.content | safe }}
+    </div>
+
+    {% if config.extra.author is defined and config.extra.author %}
+    <meta itemprop="author" content="{{ config.extra.author }}">
+    {% endif %}
+</article>
+
+{% if page.lower and (page.lower.extra.hide_from_nav is not defined or not page.lower.extra.hide_from_nav) %}{% set prev_page = page.lower %}{% endif %}
+{% if page.higher and (page.higher.extra.hide_from_nav is not defined or not page.higher.extra.hide_from_nav) %}{% set next_page = page.higher %}{% endif %}
+<nav class="chapter-turn" aria-label="Chapter navigation">
+    {% if prev_page %}
+    <a href="{{ prev_page.permalink | safe }}" class="chapter-turn__link chapter-turn__link--prev" rel="prev">
+        <span class="chapter-turn__label">&larr; {% if prev_page.extra.chapter is defined %}Chapter {{ prev_page.extra.chapter }}{% else %}Previous{% endif %}</span>
+        <span class="chapter-turn__title">{{ prev_page.title }}</span>
+    </a>
+    {% else %}
+    <a href="{{ get_url(path='@/_index.md') | safe }}" class="chapter-turn__link chapter-turn__link--prev">
+        <span class="chapter-turn__label">&larr; Cover</span>
+        <span class="chapter-turn__title">{{ config.title }}</span>
+    </a>
+    {% endif %}
+
+    {% if next_page %}
+    <a href="{{ next_page.permalink | safe }}" class="chapter-turn__link chapter-turn__link--next" rel="next">
+        <span class="chapter-turn__label">{% if next_page.extra.chapter is defined %}Chapter {{ next_page.extra.chapter }}{% else %}Next{% endif %} &rarr;</span>
+        <span class="chapter-turn__title">{{ next_page.title }}</span>
+    </a>
+    {% endif %}
+</nav>
+{% endblock %}

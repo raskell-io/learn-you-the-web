@@ -1,0 +1,89 @@
+// =============================================================================
+// Palette
+// Remaps Tanuki's Catppuccin variables so every theme component follows along.
+// Light is warm paper and ink; dark is the dusky purple of the cover's sky.
+// =============================================================================
+
+:root,
+[data-theme="dark"] {
+  --ctp-base: #1f1b24;
+  --ctp-mantle: #19161e;
+  --ctp-crust: #141118;
+  --ctp-surface0: #2c2733;
+  --ctp-surface1: #3a3442;
+  --ctp-surface2: #4b4454;
+  --ctp-overlay0: #645c6e;
+  --ctp-overlay1: #7d7487;
+  --ctp-overlay2: #968da0;
+  --ctp-subtext0: #b0a7b8;
+  --ctp-subtext1: #cbc2d0;
+  --ctp-text: #eee6ea;
+
+  --ctp-peach: #f6a66d;
+  --ctp-yellow: #f2cf7e;
+  --ctp-mauve: #c8a6f2;
+  --ctp-lavender: #bab4f5;
+  --ctp-pink: #f1a5c4;
+  --ctp-red: #f08a8a;
+  --ctp-green: #a9d68c;
+  --ctp-teal: #8bd6c8;
+  --ctp-sky: #8fd3ea;
+  --ctp-sapphire: #7cc4e0;
+  --ctp-blue: #92b9f0;
+
+  --book-accent: var(--ctp-peach);
+  --book-accent-soft: rgba(246, 166, 109, 0.12);
+  --book-accent-2: var(--ctp-mauve);
+  --book-accent-2-soft: rgba(200, 166, 242, 0.1);
+  --book-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] {
+  --ctp-base: #fbf7f0;
+  --ctp-mantle: #f4ede2;
+  --ctp-crust: #ebe2d3;
+  --ctp-surface0: #e6dccb;
+  --ctp-surface1: #d9cdb9;
+  --ctp-surface2: #c4b59d;
+  --ctp-overlay0: #a8977d;
+  --ctp-overlay1: #8f7e66;
+  --ctp-overlay2: #786852;
+  --ctp-subtext0: #6b5c49;
+  --ctp-subtext1: #574a3a;
+  --ctp-text: #2f2620;
+
+  --ctp-peach: #b4501c;
+  --ctp-yellow: #9a6512;
+  --ctp-mauve: #7347b0;
+  --ctp-lavender: #5f55b8;
+  --ctp-pink: #b23c72;
+  --ctp-red: #b83232;
+  --ctp-green: #3f7a22;
+  --ctp-teal: #17766f;
+  --ctp-sky: #1a6f94;
+  --ctp-sapphire: #1d6f8e;
+  --ctp-blue: #2a63a6;
+
+  --book-accent: var(--ctp-peach);
+  --book-accent-soft: rgba(180, 80, 28, 0.08);
+  --book-accent-2: var(--ctp-mauve);
+  --book-accent-2-soft: rgba(115, 71, 176, 0.07);
+  --book-shadow: 0 1px 2px rgba(60, 40, 20, 0.08), 0 12px 32px rgba(60, 40, 20, 0.12);
+}
+
+:root {
+  --color-accent: var(--book-accent);
+  --color-accent-hover: var(--ctp-pink);
+  --color-link: var(--book-accent);
+  --color-link-hover: var(--ctp-pink);
+  --color-highlight: var(--book-accent);
+}
+
+body {
+  background: var(--color-bg);
+}
+
+::selection {
+  background: var(--book-accent);
+  color: var(--ctp-base);
+}
