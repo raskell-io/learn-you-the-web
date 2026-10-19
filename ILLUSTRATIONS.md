@@ -1,123 +1,173 @@
-# Illustration Briefs
+# Illustrations
 
-One illustration per chapter, in the style of the cover (`static/assets/mascots-beach.png`) and Chapter 1 (`static/assets/notebook-talks-to-server.avif`). Each brief says what the picture should show, which idea from the chapter it carries, and what to avoid.
+*Learn You a Haskell* is half text and half doodles, and the doodles do as much of the teaching as the jokes do. This file describes what this book's pictures should look like, how they're placed, and what to draw for every chapter.
 
-## House style
+## What we're going for
 
-- **Look:** warm, hand-drawn cartoon with confident dark outlines and soft painterly shading, like the cover. Sunset palette: peach, tangerine, lavender sky, teal water. Friendly, round shapes, big expressive eyes.
-- **Cast** (keep them on-model across every picture):
-  - **The tanuki:** orange-and-cream raccoon dog with dark eye patches and a teal backpack. Curious; the one who asks.
-  - **The shisa:** orange lion-dog with a curly, swirly mane and tail. Guardian; stands at doors. Shisa traditionally come in pairs (one mouth open, one closed).
-  - **The crabs:** small red-orange crabs with big googly eyes. Always a crowd, never a single character.
-  - **Computers** may have faces, as in Chapter 1: the laptop is warm and yellow, servers are slate-blue boxes with a green power light.
-- **Text in the image:** as little as possible. Short labels (a number, a port, a single word) are fine; sentences are not. If a picture needs words, leave a blank sign or speech bubble and letter it afterwards, so the type is crisp and correct.
-- **Format:** 1536 × 1024 (3:2, landscape). Keep a master PNG and export an AVIF for the site (aim for under 150 KB). Leave a little breathing room at the edges; the page rounds the corners.
+Look at a few chapters of *Learn You a Haskell* (the community mirror is at [learnyouahaskell.github.io](https://learnyouahaskell.github.io/)) before drawing anything. Its pictures share a handful of traits, and every one of them matters:
 
-## Adding one to the book
+- **Doodles, not paintings.** Quick drawings made with a tablet pen: thin, wobbly black outlines that don't always close, flat bright colours, at most one simple shadow tone and a white highlight blob. No gradients, no textures, no glow, no lighting effects.
+- **No background.** Each drawing is a cut-out on a transparent background, floating in the page. No sky, no scenery, no frame.
+- **Goofy, not cute.** Slightly odd proportions, dopey or deadpan expressions, wonky hands. Charm from being a bit silly, not from being adorable.
+- **Small and many.** About one drawing per 500–700 words, usually 140–220 pixels wide, floated left or right next to the paragraph it jokes about. A chapter has four to six of them.
+- **The drawing is a joke about one sentence.** It doesn't illustrate the topic ("a server"); it illustrates a specific line ("it has heard your request, and it is not moving"). Readers should look from the picture to the paragraph and grin.
+- **Some drawings explain.** Once or twice a chapter, a wider drawing turns a concept into a creature or object with scrawled handwritten labels on its parts, the way *Learn You a Haskell* draws a list as a caterpillar with "head", "tail", "init" and "last" written on it.
+- **Handwritten lettering.** Labels and speech are scrawled by hand, slightly crooked, never typeset.
+- **Deadpan alt text.** The alt text describes the picture and keeps the joke: "this is you", "load-bearing", "friends".
 
-Save it as `static/assets/<slug>.avif` and add two lines to the chapter's front matter:
+### What's wrong with the current two
 
-```toml
-[extra]
-chapter = 3
-illustration = "assets/whats-in-a-name.avif"
-illustration_alt = "One sentence describing the picture for people who can't see it."
+`mascots-beach` (the cover) and `notebook-talks-to-server` (Chapter 1) are polished, painterly scenes with full backgrounds, soft lighting and gradients, placed as one large banner per page. They illustrate the topic literally (a laptop asks, a server answers) rather than making a joke, and the finish reads as stock art. Both should be replaced. The *characters* are good and stay: redraw them in the doodle style.
+
+## The cast, redrawn
+
+Draw each character once as a model sheet before starting the chapters, so they stay consistent.
+
+- **The tanuki:** orange-and-cream raccoon dog, dark eye patches, teal backpack. Curious, a bit naive, always asking for things. Stands in for you and your browser.
+- **The shisa:** orange lion-dog with a swirly, scribbled mane. Guardian of doors; unimpressed, immovable, secretly kind. Shisa come in pairs, one with its mouth open, one closed.
+- **The crabs:** small red crabs with huge googly eyes on stalks. Always a crowd, never one character. They are traffic, packets, visitors, attackers and onlookers.
+- **Computers:** boxy, with simple faces, like everything else here. Servers are slate-blue with a green power light; laptops are yellow.
+
+## Making the files
+
+- **Transparent PNG**, drawn at twice the display size (a 180-pixel-wide spot is drawn 360 pixels wide). Keep the layered source file.
+- **File names:** `static/assets/spots/<chapter-slug>-<short-name>.png`, for example `static/assets/spots/getting-an-answer-teapot.png`.
+- **Dark mode:** handled for you. The page puts each doodle on a small paper-coloured card in dark mode so black ink stays visible.
+- **Using an image generator:** they default to polished, glossy output, which is the opposite of what we want. Ask explicitly for "a crude digital doodle drawn with a tablet pen, thin wobbly black ink lines, flat colours, minimal cel shading, transparent background, no gradients, no texture, no scenery", and expect to throw most results away. Leave lettering out and add it by hand afterwards. Honestly, the best results will come from a person with a tablet and no fear of wobbly lines: the charm of *Learn You a Haskell*'s drawings is that the author drew them himself.
+
+## Placing one in a chapter
+
+Put the shortcode on its own line, directly before the paragraph it belongs to:
+
+```md
+{{ spot(src="assets/spots/getting-an-answer-teapot.png", alt="short and stout", side="right", width=170) }}
+
+On 1 April 1998, the IETF, the body that publishes internet standards, ...
 ```
 
-The chapter template does the rest. The alt texts below are suggestions; adjust them to match the finished picture.
+- `side`: `right` (default), `left`, or `center` for a wide explanatory drawing.
+- `width`: display width in pixels. 140–220 for spots, up to 640 for `center`.
+- Alternate sides down the page. Never put two spots next to the same paragraph.
+- On phones, side spots stop floating and sit centred between paragraphs.
+
+The chapter-header banner (`illustration` in front matter) still works, but don't use it for new drawings: *Learn You a Haskell* opens each chapter with a spot beside the first paragraph instead.
+
+## Priorities
+
+Twenty-three drawings marked **★** below give every chapter its opening spot and its best joke. Draw those first; the rest can follow chapter by chapter. Quotes in the briefs are the sentence the drawing belongs next to.
 
 ---
 
-## Introduction: "Before we begin"
+## Cover ★
 
-**Show:** A cluttered 1990 office at night. A black, cube-shaped computer (the NeXT) sits on a desk under a desk lamp, with a handwritten paper sign taped to it. The tanuki peers curiously at the sign, backpack on, as if it has just arrived from the future. Stacks of papers and binders everywhere: the lost notes the web was invented to find.
+Replaces `mascots-beach`. One wide drawing, about 900 pixels wide, on transparent background: the tanuki, backpack on, holding up a scrap of paper with `GET /` scrawled on it, looking hopeful. Beside it, the shisa sits with its chest out, looking unimpressed. Three or four crabs peek in from the edges. No beach, no sunset.
 
-**Carries:** The web started as one modest machine solving a mundane problem.
+Alt: "A tanuki holds up a note that says GET /, next to an unimpressed shisa and some nosy crabs."
 
-**Avoid:** Depicting Tim Berners-Lee or any real person. Readable text on the sign (leave it blank or scribbled; the chapter quotes it).
+The favicon can then be cropped from the new tanuki's face.
 
-**Alt:** "A tanuki peers at a small black cube computer with a handwritten sign taped to it, on a desk buried in papers."
+## Introduction
 
-## 1. Asking for a Page (done)
+**★ The NeXT cube** (right, 180): *"with a handwritten label stuck to it"*. A black cube computer, sweating, with a sign taped to it that just says `DO NOT`. Its little face looks terrified of being switched off. Alt: "please".
 
-`notebook-talks-to-server.avif`: the laptop asks, the server answers.
+**The proposal** (left, 150): *"wrote three words across the top"*. A sheet of paper covered in tiny scribbles, a coffee ring, and three big red loopy words scrawled diagonally across the top (letter them "vague but exciting"). Alt: "approved, apparently".
+
+## 1. Asking for a Page
+
+Retire `notebook-talks-to-server`.
+
+**★ Six terminals** (right, 190): *"if you're on Linux you already have six of them open"*. The tanuki surrounded by six little terminal windows, typing in two of them at once, extremely pleased with itself. Alt: "minimum".
+
+**The blank line** (left, 150): *"That blank line is load-bearing."* An empty, flat rectangle (the blank line) straining on its knees, holding up a wobbling stack of header lines like a weightlifter. Alt: "load-bearing".
+
+**★ The URL express** (center, 600): *the URL diagram*. A little three-carriage train, labels scrawled above each part: the locomotive is `http` ("scheme: which rules"), the middle carriage is `example.com` ("host: who to ask"), the caboose is `/about` ("path: what you want"). The tanuki waves from the caboose. Alt: "the URL express, three carriages".
+
+**★ Tracking pixels** (right, 140): *"a second tracking pixel to keep the first one company"*. Two tiny square pixels with stick legs, holding hands, peering at you suspiciously through binoculars. Alt: "friends".
 
 ## 2. Getting an Answer
 
-**Show:** The slate-blue server, seated behind a counter like a judge at a talent show, holding up a big score card that reads **404**. More cards are fanned on the counter: **200** (green), **301** (with an arrow), **418** (with a tiny teapot drawn on it). The tanuki stands on the other side looking at the card, puzzled. To one side, the shisa sits under a small sign reading **403**, not moving.
+**Not here** (right, 160): *"Not even an apology."* A slate-blue server with its arms crossed, pointing sideways at a signpost reading `→ https`, not making eye contact. Alt: "elsewhere".
 
-**Carries:** Every answer starts with a number, and the number tells you how it went.
+**301 Bananas** (left, 170): *"A server could send 301 Bananas and every browser on earth would still follow the redirect."* A sign reading `301 BANANAS`. A browser window on little legs trots past it in the direction of the arrow, unbothered, carrying a banana. Alt: "close enough".
 
-**Avoid:** More than five or six cards; it should read at a glance.
+**The five families** (center, 620): *the 1xx–5xx table*. Five little creatures in a row, each labelled: `1xx` is an hourglass with legs, tapping its foot; `2xx` is a server giving a thumbs up; `3xx` is a server pointing offstage; `4xx` is a server pointing accusingly at *you*; `5xx` is a server lying on its back with X eyes and a puff of smoke. Alt: "the whole family".
 
-**Alt:** "A server sits behind a counter holding up a card reading 404, with cards for 200, 301 and 418 beside it, while a tanuki looks on and a shisa guards a sign reading 403."
+**★ The shisa's code** (left, 170): *"It stands at the door, it has heard your request, and it is not moving."* The shisa sitting squarely on a doormat with its eyes closed and nose in the air. A small `403` hangs from its collar like a dog tag. Alt: "no".
+
+**★ The teapot** (right, 170): *"The body is short and stout."* A small, round teapot with stubby arms crossed, glaring at a single coffee bean on the floor in front of it. Alt: "short and stout".
 
 ## 3. What's in a Name?
 
-**Show:** An enormous old tree seen from below, its roots glowing at the bottom and labelled with a single dot. The trunk splits into big branches with small wooden signs (**com**, **org**, **ch**), each splitting further. On one twig hangs a small tag with a number on it. The tanuki is climbing the tree with a map, following signposts from the roots up to that tag.
+**★ HOSTS.TXT** (left, 190): *"became a comedy for a few thousand"*. An enormous scroll unrolling off the edge of the drawing and down out of frame, with one exhausted crab in a visor trying to write another line at the bottom. Alt: "one more, please".
 
-**Carries:** DNS is a tree, read from the root outward, where each level only knows the next.
+**The forgotten dot** (right, 140): *"the way nobody bothers typing the full stop at the end of a text message"*. A single small dot with a sad face, sitting alone at the end of a line of scribbles, a tiny paper party hat on its head that nobody noticed. Alt: "the root, feeling overlooked".
 
-**Avoid:** Making it look like a family tree or an org chart. It's a real, slightly magical tree.
+**★ The name tree** (center, 600): *the "Reading a name backwards" diagram*. A scraggly upside-down tree. The root at the top is labelled `.`, branches below it are labelled `com`, `org` and `ch`, a twig off `com` is labelled `example`, and from it hangs a luggage tag reading `104.20.23.154`. The tanuki dangles from the `com` branch by one paw, reading a map. Alt: "read it backwards".
 
-**Alt:** "A tanuki climbs a huge tree whose branches carry signs reading com, org and ch, following them toward a small tag with a number on it."
+**Remembering, briefly** (left, 150): *"What makes resolvers fast is that they remember."* A resolver (a box with spectacles) covered in sticky notes, each with a name and an address, and an egg timer balanced on its head. Alt: "for 300 seconds".
 
 ## 4. The Place That Answers
 
-**Show:** A cosy row of tiny numbered doors set into the side of a giant laptop, like a street of little houses: **22**, **53**, **80**, **443**, **8000**. Most are dark. Behind door **8000**, a small slate-blue server sits on a stool with a lantern, wide awake, waiting. The tanuki is about to knock.
+**★ The job description** (right, 170): *"It's waiting, which is the entire job description."* A small server sitting on a stool facing a door, holding a mug of tea, completely still. A single fly circles its head. Alt: "still waiting".
 
-**Carries:** A server is a program waiting behind a numbered door (a port), and it can live on your own laptop.
+**Favicon** (left, 160): *"Browsers have been asking websites for this file, uninvited, since 1999."* A browser window on legs at a door, holding out a tiny empty frame and asking for `favicon.ico`, while the server behind the door shrugs. Alt: "every single time".
 
-**Avoid:** A data-centre aesthetic. This is homely and small.
+**The doors** (right, 190): *the ports table*. A wall of small numbered doors, `22`, `53`, `80`, `443` and `8000`. All are dark except `8000`, where the tanuki's laptop server peeks out of a lit doorway. Alt: "door 8000".
 
-**Alt:** "A row of tiny numbered doors in the side of a giant laptop; behind door 8000 a small server waits with a lantern while a tanuki prepares to knock."
+**★ Every request is a stranger** (left, 170): *the "stateless" section*. A server with a goldfish's face, cheerfully greeting the same tanuki for the third time with a speech bubble: "nice to meet you!". Alt: "who are you again".
 
 ## 5. Speaking Clearly
 
-**Show:** The tanuki at an old-fashioned typewriter (or a chunky teletype), tongue out in concentration, typing a short letter. The paper curls out of the machine with three short lines on it (letter them afterwards: `GET / HTTP/1.1`, `Host: example.com`, and a blank line). A carriage-return lever is mid-swing. A crumpled first draft lies on the floor.
+**★ Typing it by hand** (right, 180): *the opening*. The tanuki hunched over a clunky typewriter, tongue out, typing with one claw. A long strip of paper curls out reading `GET / HTTP/1.1`. Alt: "by hand".
 
-**Carries:** HTTP is plain text, simple enough to type by hand, and the line endings come from typewriters.
+**★ CR and LF** (left, 170): *"one character moved the print head back to the left and another moved the paper up"*. Two little creatures holding hands, labelled `\r` and `\n`. `\r` is pulling a typewriter carriage lever; `\n` is turning a paper knob. They are inseparable. Alt: "always together".
 
-**Avoid:** A modern keyboard. The joke depends on the carriage return.
+**★ The verbs** (center, 620): *the methods table*. A row of six labelled characters: `GET` is a hand reaching out; `HEAD` is just a head with no body, smiling; `POST` is an envelope being shoved through a letterbox; `PUT` is a little crane lowering a box onto a shelf; `PATCH` is a sticking plaster; `DELETE` is an eraser rubbing something out. Alt: "the verbs, one of them is just a head".
 
-**Alt:** "A tanuki concentrates at an old typewriter, typing a three-line HTTP request on a sheet of paper."
+**Helpful** (right, 160): *"Google's Web Accelerator started prefetching every link"*. A cheerful robot with a feather duster clicking every link on a page in turn, including a big red one labelled `delete`, while things vanish in puffs behind it. No logos. Alt: "so helpful".
+
+**Matcha** (left, 140): *the cookie exchange*. A crab handing the tanuki a round green cookie labelled `flavour=matcha`, with a tiny note: "bring this back". Alt: "remember me".
 
 ## 6. Standing at the Door
 
-**Show:** An Okinawan-style gate with a red-tiled roof. A pair of shisa sit on the gateposts, one with its mouth open, one closed. The tanuki is being greeted at the gate. Behind the gate, a small house with the slate-blue server in the window, busy and unbothered. A queue of crabs waits politely; one crab, carrying a suspicious bundle, is being firmly turned away by a raised paw.
+**★ The doorman** (right, 180): *the opening*. The shisa wearing a doorman's peaked cap, one paw raised to stop the tanuki, the other holding a clipboard. Alt: "name?".
 
-**Carries:** A reverse proxy stands in front of the server, greets everyone, and decides who gets through.
+**★ Two conversations** (left, 170): *"Two complete HTTP conversations, glued together in the middle."* A proxy character holding two old telephone receivers, one to each ear, repeating into one what it hears from the other, eyes rolled upward. Alt: "I'll pass that on".
 
-**Avoid:** Making the shisa scary. They are protective, not hostile.
+**Trust me** (right, 150): *"Notice that these headers are claims, not facts."* A crab wearing an obvious fake moustache and glasses, holding up a hand-drawn badge reading `X-Forwarded-For: the president`. Alt: "trust me".
 
-**Alt:** "Two shisa guard a red-roofed gate, welcoming a tanuki and turning away a crab with a suspicious bundle, while a server works peacefully in the house behind."
+**The empty hallway** (left, 170): *"a doorman, standing in a perfectly working doorway, shrugging at an empty hallway"*. Exactly that: the shisa in its cap, palms up, in front of a long empty corridor with a `502` sign on the wall. Alt: "nobody home".
 
 ## 7. Locks, Keys, and Quiet Conversations
 
-**Show:** The classic paint-mixing picture of key agreement. The tanuki and the server each stand at an easel. Both start with the same shared pot of yellow paint on a table between them. Each secretly adds their own colour (tanuki: red, behind its back; server: blue, under the table) and passes the mixed pot across. Each then adds its own secret colour again, and both end up holding pots of exactly the same brown. A row of crabs watches from a fence, squinting at the passed pots, completely baffled.
+**★ The postcard** (right, 170): *"Plain HTTP is a postcard."* A postcard in transit on a conveyor belt, with three crabs reading it over each other's shoulders, one holding a pen to add something. Alt: "everyone's reading".
 
-**Carries:** Two strangers can agree on a secret in public without ever sending the secret.
+**★ Paint** (center, 620): *the key agreement explanation*. The classic paint-mixing picture, with labels: a shared pot of yellow (`public`); the tanuki secretly adds red and the server secretly adds blue (each labelled `secret`); they swap the mixed pots in the open; each adds its own secret again; both end up holding the same brown pot (labelled `same!`). Crabs on a fence watch the swap and look baffled. Alt: "nobody sent the brown".
 
-**Avoid:** Padlocks and keys as the main image; the chapter's real insight is the shared secret. A small padlock somewhere in the scene is fine as a nod to the title.
+**Turtles, but crabs** (left, 170): *the certificate chain*. A wobbly tower of crabs standing on each other's shoulders, each holding up a signed paper to the one above it. The crab at the bottom wears a tiny crown labelled `root`. Alt: "who vouches for the voucher".
 
-**Alt:** "A tanuki and a server mix paints in secret colours and end up with the same shade, while a row of crabs watches the exchange in confusion."
+**Perfectly valid** (right, 160): *"proves you're talking to paypa1-login-secure.com, with total cryptographic confidence"*. A shifty figure in a trench coat and sunglasses proudly holding up a certificate with a big gold seal. Alt: "technically correct".
 
 ## 8. When Things Get Busy
 
-**Show:** A huge crowd of crabs pouring along the beach toward one small server door with a sign for five places in the queue. The queue is full; crabs are piling up, climbing over each other, some giving up and sitting in the sand. Off to the side, the shisa stands at a fork in the path, directing crabs toward two identical doors marked **A** and **B**, where everything is calm.
+**★ Room for five** (left, 190): *"Five hundred crabs at a door with room for five"*. A velvet queue rope with exactly five crabs neatly in line, and behind them a mountain of crabs piled up, some giving up and sitting down. Alt: "the queue is full".
 
-**Carries:** One server has a ceiling; a load balancer and more servers turn a crush into a queue.
+**★ Bigger, or more** (center, 600): *vertical and horizontal scaling*. Left half, labelled `bigger`: one enormous bodybuilder server, veins popping, holding up a barbell. Right half, labelled `more`: four small identical servers holding hands in a row, relaxed. Alt: "bigger, or more".
 
-**Avoid:** Making it look like a disaster scene. It's a comic crush, not a catastrophe.
+**Coin toss** (right, 150): *"Caddy picks at random by default"*. The shisa flipping a coin, with door `A` on one side and door `B` on the other, while a crab waits. Alt: "fair enough".
 
-**Alt:** "A crowd of crabs crushes toward one tiny server door while a shisa calmly directs others to two doors marked A and B."
+**Two hard things** (left, 160): *the Phil Karlton line*. A crab staring at a jar labelled `stuff (still good??)` with a question mark over its head. Alt: "cache invalidation".
+
+**Edge copies** (right, 170): *the CDN section*. Several identical copies of the same page, each wearing a tiny tourist hat and holding a different airport code sign (`ZRH`, `SYD`, `NRT`). Alt: "on tour".
 
 ## 9. Running Your Own Corner
 
-**Show:** Sunset, as on the cover. A small hut on a grassy hill above the beach, with a little slate-blue server inside and a glowing padlock lantern hanging by the door. The tanuki is hammering a wooden signpost into the ground in front of it (leave the sign blank: it's the reader's domain). A single shisa sits on the hut's roof. Far below, tiny crabs head up the path toward it.
+**★ The price of a sandwich** (right, 170): *"for about the price of a sandwich a month"*. The tanuki handing a sandwich across a counter to a crab, in exchange for a tiny server held out on a tray. Alt: "fair trade".
 
-**Carries:** A small corner of the web that's yours, with a name, a lock, and visitors on their way.
+**Two halves** (left, 160): *the SSH key*. A key snapped in two. One half, labelled `.pub`, hangs from a necklace the tanuki is happily handing out to everyone. The other half is hidden in its sock. Alt: "keep the sock half".
 
-**Avoid:** Anything that looks like a big company or a cloud logo. Small and owned.
+**★ Three doors** (right, 180): *"three doors, and a wall everywhere else"*. A long brick wall with exactly three doors labelled `22`, `80` and `443`, and the shisa sitting on top of the wall, keeping watch. Alt: "and a wall everywhere else".
 
-**Alt:** "At sunset, a tanuki hammers a blank signpost in front of a small hut with a server inside and a padlock lantern at the door, as crabs climb the path toward it."
+**★ Houseplant** (left, 160): *"A server is a bit like a houseplant"*. A small server growing out of a flowerpot, being watered by the tanuki with a watering can labelled `apt upgrade`. Alt: "it needs something".
+
+**Yours** (center, 520): *the closing paragraph*. Night. The tanuki's little server sits on a hill with a lamp on. Far away, one crab is walking up the path toward it, holding a note that says `GET /`. Alt: "one of the two computers is now yours".

@@ -1,0 +1,5 @@
+{#- A small doodle beside the text, the way Learn You a Haskell does it.
+    side: "right" (default), "left", or "center" for a wide explanatory drawing.
+    width: display width in CSS pixels; supply the image at twice that for sharpness. -#}
+{%- set side = side | default(value="right") -%}
+<img class="spot spot--{{ side }}" src="{{ get_url(path=src) | safe }}" alt="{{ alt }}"{% if width is defined %} width="{{ width }}"{% endif %} loading="lazy" decoding="async">

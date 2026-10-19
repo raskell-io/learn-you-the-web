@@ -50,8 +50,6 @@ aliases = ["/chapter-1/"]
 
 [extra]
 chapter = 1
-illustration = "assets/notebook-talks-to-server.avif"   # optional
-illustration_alt = "A laptop asks a server for a page"
 +++
 ```
 
@@ -65,6 +63,12 @@ Run `curl -v http://example.com` and look at the lines starting with `>`.
 {% note(title="Pedantry corner") %}
 A small aside for the curious. Optional title.
 {% end %}
+```
+
+Illustrations are small doodles floated beside the paragraph they joke about. See `ILLUSTRATIONS.md` for the style and the briefs:
+
+```md
+{{ spot(src="assets/spots/getting-an-answer-teapot.png", alt="short and stout", side="right", width=170) }}
 ```
 
 Terminal sessions use ` ```console ` with a `$ ` prompt so readers can tell input from output.

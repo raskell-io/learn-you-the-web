@@ -1,0 +1,54 @@
+// =============================================================================
+// Spot illustrations: small doodles floated beside the text
+// =============================================================================
+
+.article__content {
+  .spot {
+    display: block;
+    height: auto;
+    max-width: 42%;
+    border-radius: 0;
+  }
+
+  .spot--right {
+    float: right;
+    margin: 0.35rem 0 1rem 1.75rem;
+  }
+
+  .spot--left {
+    float: left;
+    margin: 0.35rem 1.75rem 1rem 0;
+  }
+
+  .spot--center {
+    max-width: 100%;
+    margin: 2rem auto;
+  }
+
+  // Doodles have transparent backgrounds and dark ink, which vanishes on the
+  // dark theme, so there they sit on a little piece of paper.
+  [data-theme="dark"] & .spot {
+    background: #fbf7f0;
+    padding: 0.6rem;
+    border-radius: 12px;
+  }
+
+  // Blocks that need the full measure start below any doodle beside them.
+  h2,
+  h3,
+  pre,
+  table,
+  .callout,
+  .chapter-turn {
+    clear: both;
+  }
+
+  @media (max-width: 600px) {
+    .spot--right,
+    .spot--left {
+      float: none;
+      max-width: 60%;
+      margin: 1.5rem auto;
+    }
+  }
+}
