@@ -131,7 +131,7 @@ These promises are why your browser asks "Confirm form resubmission?" when you r
 
 ## Sending something
 
-`GET` carries nothing but the request. When you submit a form, the data goes in a **body** after the blank line, usually with `POST`. `curl -d` sends one. The test service httpbin.org will echo back whatever it receives:
+`GET` carries nothing but the request. When you submit a form, the data goes in a **body** after the blank line, usually with `POST`. `curl -d` sends one. httpbin.org, the test service from Chapter 2, will echo back whatever it receives:
 
 ```console
 $ curl -v -d 'name=tanuki&snack=dumplings' http://httpbin.org/post

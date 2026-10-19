@@ -192,7 +192,7 @@ You'll keep running into the same handful of names. They overlap a lot; the diff
 | **Envoy** | Programmable proxy common inside large service meshes. |
 | **CDNs** (Cloudflare, Fastly, Akamai, CloudFront…) | Reverse proxies as a service, run on thousands of machines around the world. |
 
-That last row is the one you met in Chapter 1. When a site sits behind a CDN, its DNS points at the CDN's machines (Chapter 3's walk ended at `ns.cloudflare.com` for a reason), so your request lands at whichever of the CDN's doorways is nearest to you. That doorway serves from its cache when it can and fetches from the site's real server, the **origin**, when it can't. It's the same pattern you just built on your laptop, scaled up until it covers the planet.
+That last row is the one you met in Chapter 1. When a site sits behind a CDN, its DNS points at the CDN's machines (the `104.20.23.154` you got back in Chapter 3 is one of Cloudflare's addresses, not example.com's own), so your request lands at whichever of the CDN's doorways is nearest to you. That doorway serves from its cache when it can and fetches from the site's real server, the **origin**, when it can't. It's the same pattern you just built on your laptop, scaled up until it covers the planet.
 
 {% note(title="Full disclosure") %}
 The author works on [Zentinel](https://github.com/zentinelproxy/zentinel), an open-source reverse proxy that focuses on the security chores: filtering, rate limiting and blocking at the door. It's for people who run their own servers and want that protection on their own machines rather than inside someone else's network. It's one option among those above, and nothing in this book depends on it.

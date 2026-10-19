@@ -67,7 +67,7 @@ $ curl -v http://localhost:8000/
 
 It's the same shape as the exchange with `example.com` in Chapter 1. The `Server:` header is your Python introducing itself. `Content-Length: 30` is the size of your file in bytes (29 characters plus the newline `echo` added). `Last-Modified` is when you created it. Every header there came from looking at a file on your disk.
 
-The server that answers `example.com` is a different program on a different continent, but it does the same four things in the same order. The machines at big companies are faster and more numerous, not different in kind.
+The server that answers `example.com` is a different program, quite possibly on a different continent, but it does the same four things in the same order. The machines at big companies are faster and more numerous, not different in kind.
 
 ## Doors with numbers
 
@@ -152,7 +152,7 @@ This is why you'll see `index.html` everywhere, and also why "the URL path is a 
 
 ## Files, or made to order
 
-That distinction has names. A **static** server hands out files that already exist: what's on disk is what you get, and everyone asking for `/` gets the same bytes. Your Python server is static, apart from those folder listings. So are a lot of real websites, including, most likely, this book.
+That distinction has names. A **static** server hands out files that already exist: what's on disk is what you get, and everyone asking for `/` gets the same bytes. Your Python server is static, apart from those folder listings. So are a lot of real websites, including this book: it's a folder of HTML files that a program generated once, before you ever arrived.
 
 A **dynamic** server runs code for each request and builds the answer then and there. A search results page, your inbox, a shopping basket: none of these exist as files anywhere. The server receives `GET /search?q=tanuki`, asks a database, assembles some HTML, and sends it. To the browser, the response looks identical to a static one. Same status line, same headers, same body. The difference is entirely on the server's side of the door.
 
@@ -174,7 +174,7 @@ This is called being **stateless**: each request carries everything the server n
 
 So how does a website remember that you're logged in? The server hands your browser a small token called a **cookie**, and your browser attaches it to every later request, so each request still carries everything needed, including who you are. You'll see the headers that do this in the next chapter.
 
-The other thing a server never does is start a conversation. It can't push a page at you or wonder where you went. It sits by its door and waits for a knock. Everything happens because a client asked.
+The other thing a plain HTTP server never does is start a conversation. It can't push a page at you or wonder where you went. It sits by its door and waits for a knock. Everything happens because a client asked.
 
 {% try() %}
 Stop your server with <kbd>Ctrl</kbd>+<kbd>C</kbd> in its terminal, then reload the page in your browser. The site is gone. Nothing was wrong with the files; nobody was at the door.

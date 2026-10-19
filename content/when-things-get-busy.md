@@ -8,7 +8,7 @@ aliases = ["/chapter-7/"]
 chapter = 8
 +++
 
-Every request in this book so far has arrived alone and been answered at leisure. Real servers don't get that luxury. A link to your page turns up somewhere popular, and a few thousand people click it in the same minute, each of them sending the same little `GET` you met in Chapter 1.
+Your requests so far have arrived one at a time and been answered at leisure. Real servers don't get that luxury. A link to your page turns up somewhere popular, and a few thousand people click it in the same minute, each of them sending the same little `GET` you met in Chapter 1.
 
 You don't have to wait for fame to find out what happens next. You can send the crowd yourself.
 
@@ -204,7 +204,7 @@ Health checks handle a server that's gone. Sometimes the whole back end is in tr
 
 Everything so far adds servers. Caching removes work instead: answer once, keep the answer, and hand out copies until it goes stale.
 
-Chapter 1's `curl` output had two headers we skipped. Here they are again:
+When I ran `curl` in Chapter 1, the answer had a few more headers than I showed you. Here they are:
 
 ```console
 $ curl -sI https://example.com

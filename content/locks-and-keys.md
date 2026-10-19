@@ -175,7 +175,7 @@ And once the envelope arrives, TLS is done. What the server does with your passw
 
 Look at the certificate issuer one more time: *Cloudflare* TLS Issuing ECC CA 3. The machine that completed your handshake wasn't example.com's own server. It was the doorman from Chapter 6, holding a certificate for example.com and the private key that goes with it.
 
-This is **TLS termination**, and it's the most common way HTTPS is deployed. The encrypted connection from the visitor ends at the proxy. The proxy decrypts the request, makes its decisions (cache, route, block), and forwards it to the origin server, often over plain HTTP on a private network, or over a second, separate TLS connection when the path is less private. The `X-Forwarded-Proto: https` header you saw Caddy add is how the server behind the door finds out that the visitor's side was encrypted.
+This is **TLS termination**, and it's the most common way HTTPS is deployed. The encrypted connection from the visitor ends at the proxy. The proxy decrypts the request, makes its decisions (cache, route, block), and forwards it to the origin server, often over plain HTTP on a private network, or over a second, separate TLS connection when the path is less private. The `X-Forwarded-Proto` header you saw Caddy add in Chapter 6 is how the server behind the door finds out: on your laptop it said `http`, and behind a real certificate it says `https`.
 
 It's a reasonable trade, but it is a trade. The envelope is opened at the door, so whoever runs the door can read everything: every password, every cookie. When you put a site behind a CDN, you are handing them that key. That's often the right choice, and it should always be a deliberate one.
 

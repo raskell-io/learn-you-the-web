@@ -114,7 +114,7 @@ $ sudo ufw allow 443/tcp
 $ sudo ufw enable
 ```
 
-Order matters: allow SSH *before* you enable the firewall, or the first thing it blocks is you. If you'd like HTTP/3, the newest version of HTTP, which Caddy speaks and which runs over UDP instead of TCP, add `sudo ufw allow 443/udp` as well. (Many providers also offer a firewall in their control panel. Using one is fine; using both means you have two places to forget about.)
+Order matters: allow SSH *before* you enable the firewall, or the first thing it blocks is you. If you'd like HTTP/3 (Chapter 5), which Caddy speaks and which travels over UDP, add `sudo ufw allow 443/udp` as well. (Many providers also offer a firewall in their control panel. Using one is fine; using both means you have two places to forget about.)
 
 ## Installing Caddy
 
@@ -173,7 +173,7 @@ The usual suspects are a DNS record that hasn't reached Let's Encrypt yet or a c
 
 A server is a bit like a houseplant: it doesn't need much, but it does need *something*, and the something is mostly the same every month.
 
-- **Updates.** Run `sudo apt update && sudo apt upgrade` now and then. Better, install `unattended-upgrades` (Ubuntu ships with it; on Debian, `sudo apt install unattended-upgrades`), which installs security fixes on its own. Caddy comes from the repository you added, so it updates along with everything else. Some updates, like a new kernel, only take effect after `sudo reboot`; on Ubuntu, a file appears at `/var/run/reboot-required` to tell you.
+- **Updates.** Turn on `unattended-upgrades`, which installs your distribution's security fixes on its own (Ubuntu ships with it switched on; on Debian, `sudo apt install unattended-upgrades`, then `sudo dpkg-reconfigure unattended-upgrades` to enable it). It leaves other repositories alone, so still run `sudo apt update && sudo apt upgrade` now and then: that's what brings new Caddy releases from the repository you added. Some updates, like a new kernel, only take effect after `sudo reboot`; on Ubuntu, a file appears at `/var/run/reboot-required` to tell you.
 - **Backups.** Your site's real home is your laptop, ideally in version control, and the server only holds a copy. The things that exist *only* on the server are the Caddyfile and anything your site collects there. Copy those somewhere else, or use your provider's snapshot feature. Restore from a backup once, on purpose, so the first time isn't an emergency.
 - **A look at the logs.** Run `sudo journalctl -u ssh` a day after setting up and you'll see strangers' programs trying passwords for users called `admin` and `test`. That's not personal. Every address on the internet gets this, and it's why you turned passwords off. (Caddy doesn't keep an access log unless you ask: add a `log` line inside your site block.)
 - **Someone to notice.** Plenty of services will request your page every few minutes and email you when it stops answering. You want to hear about an outage before your friends tell you.
