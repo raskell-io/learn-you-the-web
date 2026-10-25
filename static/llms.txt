@@ -1,0 +1,30 @@
+# Learn You the Web
+
+> Learn You the Web is a free, friendly online book about how the web actually works: HTTP, DNS, TLS, servers, reverse proxies and the protocols that hold it all together.
+
+Learn You the Web is a hands-on guide for anyone who uses the web and wants to understand what happens underneath, without hand-waving or oversimplification. Each chapter has you type real commands (such as `curl -v`) and read the real conversations between machines, and by the end the reader puts a page of their own online and understands every layer in front of it. It is written in the spirit of *Learn You a Haskell for Great Good!*. The book is a static website, so every chapter reads as plain HTML in any browser, and a single-page print version is available for offline reading. It is written by Raffael Schneider and dedicated to the public domain under CC0 1.0 Universal.
+
+## Chapters
+
+- [Introduction](https://learn-you-the-web.raskell.io/introduction/): how the web began as a way to ask for documents, and what this book will cover
+- [Chapter 1: Asking for a Page](https://learn-you-the-web.raskell.io/asking-for-a-page/): watching one computer ask another for a page with `curl -v`
+- [Chapter 2: Getting an Answer](https://learn-you-the-web.raskell.io/getting-an-answer/): HTTP status codes, and how the first digit says whose fault it is
+- [Chapter 3: What's in a Name?](https://learn-you-the-web.raskell.io/whats-in-a-name/): DNS, and how a name like example.com becomes an address
+- [Chapter 4: The Place That Answers](https://learn-you-the-web.raskell.io/the-place-that-answers/): what a server is, ports, and running a server of your own
+- [Chapter 5: Speaking Clearly](https://learn-you-the-web.raskell.io/speaking-clearly/): HTTP up close, requests and responses typed by hand
+- [Chapter 6: Standing at the Door](https://learn-you-the-web.raskell.io/standing-at-the-door/): reverse proxies, what they do, and running one
+- [Chapter 7: Locks, Keys, and Quiet Conversations](https://learn-you-the-web.raskell.io/locks-and-keys/): HTTPS, TLS and certificates, and what the padlock does and does not promise
+- [Chapter 8: When Things Get Busy](https://learn-you-the-web.raskell.io/when-things-get-busy/): load, caching, CDNs and scaling with more servers, more copies and fewer questions
+- [Chapter 9: Running Your Own Corner](https://learn-you-the-web.raskell.io/running-your-own-corner/): putting a real site online with a rented machine, a domain, a small config and a certificate
+
+## Links
+
+- [Read online](https://learn-you-the-web.raskell.io/): the book's cover and table of contents
+- [Source code](https://github.com/raskell-io/learn-you-the-web): Markdown chapters, built with Zola
+- [raskell.io projects](https://raskell.io/projects/): Learn You the Web among the other raskell.io projects
+- [Author](https://raskell.io/about/): Raffael Schneider
+
+## Optional
+
+- [Print version](https://learn-you-the-web.raskell.io/print/): the whole book on one page, for printing or offline reading
+- [Licence](https://github.com/raskell-io/learn-you-the-web/blob/main/LICENSE): CC0 1.0 Universal

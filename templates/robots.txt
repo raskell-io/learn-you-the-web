@@ -1,0 +1,7 @@
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+Sitemap: {{ get_url(path="sitemap.xml") | safe }}
+
+# For agents: {{ get_url(path="llms.txt") | safe }} . Made by Raffael Schneider, https://raskell.io/

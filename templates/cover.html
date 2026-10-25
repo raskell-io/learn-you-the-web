@@ -2,6 +2,51 @@
 
 {% block title %}A friendly guide to how the web actually works{% endblock %}
 
+{% block head %}
+<link rel="alternate" type="text/markdown" title="llms.txt" href="/llms.txt">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Book",
+            "@id": "{{ config.base_url | safe }}/#book",
+            "name": "{{ config.title }}",
+            "alternativeHeadline": "A friendly guide to how the web actually works. For Real This Time.",
+            "description": "A friendly guide to how the web actually works: HTTP, DNS, TLS, and the protocols that hold it all together, without the hand-waving or oversimplification.",
+            "url": "{{ config.base_url | safe }}/",
+            "image": "{{ get_url(path=config.extra.og_image) | safe }}",
+            "bookFormat": "https://schema.org/EBook",
+            "inLanguage": "en",
+            "isAccessibleForFree": true,
+            "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "about": ["HTTP", "DNS", "TLS", "Web servers", "Reverse proxies"],
+            "hasPart": [
+                {% for pg in section.pages %}{% if pg.extra.hide_from_toc is not defined or not pg.extra.hide_from_toc %}{% if not loop.first %},{% endif %}{
+                    "@type": "Chapter",
+                    "name": {{ pg.title | json_encode() | safe }},
+                    "url": "{{ pg.permalink | safe }}"{% if pg.extra.chapter is defined %},
+                    "position": {{ pg.extra.chapter }}{% endif %}
+                }{% endif %}{% endfor %}
+            ],
+            "author": { "@type": "Person", "@id": "https://raskell.io/#person", "name": "Raffael Schneider", "url": "https://raskell.io/" },
+            "creator": { "@type": "Person", "@id": "https://raskell.io/#person", "name": "Raffael Schneider", "url": "https://raskell.io/" },
+            "sameAs": ["{{ config.extra.github }}", "https://raskell.io/projects/"],
+            "isPartOf": { "@id": "{{ config.base_url | safe }}#website" }
+        },
+        {
+            "@type": "WebSite",
+            "@id": "{{ config.base_url | safe }}#website",
+            "url": "{{ config.base_url | safe }}/",
+            "name": "{{ config.title }}",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://raskell.io/#person" }
+        }
+    ]
+}
+</script>
+{% endblock %}
+
 {% block body_class %}cover-page{% endblock %}
 
 {% block content %}
@@ -46,7 +91,7 @@
 </section>
 
 <footer class="cover-footer">
-    Written by {{ config.extra.author }} and dedicated to the public domain (<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>).
+    Written by <a href="https://raskell.io/" rel="author">{{ config.extra.author }}</a> and dedicated to the public domain (<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>).
     {% if config.extra.github %}Typos, ideas and corrections welcome <a href="{{ config.extra.github }}">on GitHub</a>.{% endif %}
 </footer>
 {% endblock %}
